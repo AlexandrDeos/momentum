@@ -1,3 +1,6 @@
+import playList from './playList.js';
+console.log(playList);
+
 const time = document.querySelector('.time');
 const firstDate = document.querySelector('.date');
 const greeting = document.querySelector('.greeting');
@@ -15,6 +18,8 @@ const weatherError = document.querySelector('.weather-error');
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const changeQuote = document.querySelector('.change-quote');
+const playBtn = document.querySelector('.play');
+const audio = new Audio();
 const quotes = [
   { 
    "quote" : "The only thing we have to fear is fear itself", 
@@ -134,7 +139,7 @@ function getSlideNext() {
 }
 slideNext.addEventListener('click', getSlideNext);
 
-getSlideNext();
+
 
 function getSlidePrev() {
 
@@ -142,7 +147,7 @@ function getSlidePrev() {
 }
 slidePrev.addEventListener('click', getSlidePrev);
 
-getSlidePrev();
+
 
 // Weather
 
@@ -174,17 +179,6 @@ city.addEventListener('сhange', getWeather);
 
 // Local storage
 
-function setLocalStorage() {
-  localStorage.setItem('name', name.value);
-}
-window.addEventListener('beforeunload', setLocalStorage)
-
-function getLocalStorage() {
-  if (localStorage.getItem('name')) {
-      name.value = localStorage.getItem('name');
-  }
-}
-window.addEventListener('load', getLocalStorage)
 
 function setCityStorage() {
   localStorage.setItem('city', city.value);
@@ -214,3 +208,12 @@ changeQuote.addEventListener("click", randomQuote);
 
 
 //New AudioPlayer
+
+function playAudio() {
+  audio.src = playList[0].src;
+  audio.currentTime = 0;
+  audio.play();
+};
+
+playBtn.addEventListener('click', playAudio);
+
