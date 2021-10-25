@@ -213,4 +213,4 @@ randomQuote();
 changeQuote.addEventListener("click", randomQuote);
 
 
-// AudioPlayer
+//New AudioPlayer
